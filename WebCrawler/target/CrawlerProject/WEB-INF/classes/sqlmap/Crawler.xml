@@ -1,0 +1,28 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE mapper PUBLIC '-//mybatis.org//DTD Mapper 3.0//EN'
+  'http://mybatis.org/dtd/mybatis-3-mapper.dtd'>
+ 
+<mapper namespace='com.project.crawler.mybatis.mappers.CrawlerMapper'>
+ 
+  <select id='getCrawlerStatus' parameterType='String' resultType='com.project.crawler.mybatis.model.CrawlerStatus'>
+     SELECT 
+      acknowledgementtoken as acknowledgementtoken, 
+      url as url , 
+      processstatus  as processstatus  
+      FROM crawlstatus 
+     WHERE acknowledgementtoken = #{acknowledgementtoken}
+  </select>
+  
+ 
+  <insert id='insertStatus' parameterType='CrawlerStatus' useGeneratedKeys='true' keyProperty='id'>
+   INSERT INTO crawlstatus(acknowledgementtoken,url,processstatus)
+    VALUES(#{acknowledgementtoken},#{url}, #{processstatus})
+  </insert>
+ 
+  <update id='updateStatus' parameterType='CrawlerStatus'>
+    UPDATE crawlstatus SET processstatus= #{processstatus} WHERE acknowledgementtoken = #{acknowledgementtoken}
+  </update>
+ 
+ 
+ 
+</mapper>

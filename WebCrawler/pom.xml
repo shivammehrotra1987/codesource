@@ -12,7 +12,7 @@
 		<spring.version>4.1.7.RELEASE</spring.version>
 		<cglib.version>2.2.2</cglib.version>
 		<compiler.version>1.8</compiler.version>
-		<spring.security.version>4.0.2.RELEASE</spring.security.version>
+		<spring.security.version>5.2.10.RELEASE</spring.security.version>
 	</properties>
 
 	<repositories>
